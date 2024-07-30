@@ -7,7 +7,7 @@ class APIHelper
 {
   Future<HomeModel?> weatherAPICall(String city)async
   {
-    String link = "https://api.openweathermap.org/data/2.5/weather?q=$city,&appid=ca26184fa1c93eb24eca3a5a35b8849e";
+    String link = "https://api.openweathermap.org/data/2.5/weather?q=$city,&appid=ca26184fa1c93eb24eca3a5a35b8849e&units=metric";
 
     var response = await http.get(Uri.parse(link));
 

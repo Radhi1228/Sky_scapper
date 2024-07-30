@@ -72,172 +72,402 @@ class _DetailScreenState extends State<DetailScreen> {
                       const Text("Not Available");
                     } else {
                       return Center(
-                        child: Column(
-                          children: [
-                            // Padding(
-                            //   padding: const EdgeInsets.all(8.0),
-                            //   child: SearchBar(
-                            //     controller: textEditingController,
-                            //     hintText: "Search City ",
-                            //     elevation: const WidgetStatePropertyAll(0),
-                            //     shape: const WidgetStatePropertyAll(
-                            //         BeveledRectangleBorder(
-                            //             borderRadius: BorderRadius.horizontal(
-                            //               left: Radius.circular(15),
-                            //               right: Radius.circular(15),
-                            //             ))),
-                            //     trailing: [
-                            //       IconButton(
-                            //         onPressed: () {
-                            //           context
-                            //               .read<HomeProvider>()
-                            //               .getWeatherAPI(
-                            //               textEditingController.text);
-                            //         },
-                            //         icon: const Icon(Icons.search),
-                            //       ),
-                            //     ],
-                            //   ),
-                            // ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 20),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "${model.name}",
-                                    style: const TextStyle(fontSize: 50),
-                                  ),
-                                  const Text("Clouds",style: TextStyle(fontSize: 16),)
-                                ],
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          child: Column(
+                            children: [
+                              // Padding(
+                              //   padding: const EdgeInsets.all(8.0),
+                              //   child: SearchBar(
+                              //     controller: textEditingController,
+                              //     hintText: "Search City ",
+                              //     elevation: const WidgetStatePropertyAll(0),
+                              //     shape: const WidgetStatePropertyAll(
+                              //         BeveledRectangleBorder(
+                              //             borderRadius: BorderRadius.horizontal(
+                              //               left: Radius.circular(15),
+                              //               right: Radius.circular(15),
+                              //             ))),
+                              //     trailing: [
+                              //       IconButton(
+                              //         onPressed: () {
+                              //           context
+                              //               .read<HomeProvider>()
+                              //               .getWeatherAPI(
+                              //               textEditingController.text);
+                              //         },
+                              //         icon: const Icon(Icons.search),
+                              //       ),
+                              //     ],
+                              //   ),
+                              // ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 20),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      "${model.name}",
+                                      style: const TextStyle(fontSize: 50),
+                                    ),
+                                    const Text("Clouds",style: TextStyle(fontSize: 16),)
+                                  ],
+                                ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                      "latitude: ${model.coordModel!.lat}",
-                                      style: const TextStyle(fontSize: 17),
-                                    ),
-                                    Text(
-                                      "longitude: ${model.coordModel!.lon}",
-                                      style: const TextStyle(fontSize: 17),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 15),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                      "Pressure: ${model.mainModel!.pressure}",
-                                      style: const TextStyle(fontSize: 17),
-                                    ),
-                                    Text("Wind Speed: ${model.mainModel!.pressure}",
-                                      style: const TextStyle(fontSize: 17),)
-                                  ],
-                                ),
-                                const SizedBox(height: 15),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                      "Max Temp: ${model.mainModel!.temp_max}",
-                                      style: const TextStyle(fontSize: 17),
-                                    ),
-                                    Text(
-                                      "Min Temp: ${model.mainModel!.temp_min}",
-                                      style: const TextStyle(fontSize: 17),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(height: 15),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                      "Feels like: ${model.mainModel!.feels_like}",
-                                      style: const TextStyle(fontSize: 17),
-                                    ),
-                                    Text(
-                                      "Humidity: ${model.mainModel!.humidity}",
-                                      style: const TextStyle(fontSize: 17),
-                                    ),
-                                  ],
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 60),
-                                  child: Row(
+                              const SizedBox(
+                                height: 30,
+                              ),
+                              Column(
+                                children: [
+                                  Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      Text("25/07 Today"),
-                                      Text("☀️"),
-                                      Text("18/33"),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height:50,
+                                        width:170,
+                                        decoration: BoxDecoration(
+                                          gradient: const LinearGradient(
+                                              begin: Alignment.topCenter,
+                                              end: Alignment.bottomCenter,
+                                              colors: [
+                                                Color(0xff5AB2FF),Color(0xff03AED2),
+                                              ]
+                                          ),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Text(
+                                          "latitude  : ${model.coordModel!.lat}",
+                                          style: const TextStyle(fontSize: 15),
+                                        ),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height:50,
+                                        width:170,
+                                        decoration: BoxDecoration(
+                                          gradient: const LinearGradient(
+                                              begin: Alignment.topCenter,
+                                              end: Alignment.bottomCenter,
+                                              colors: [
+                                                Color(0xff5AB2FF),Color(0xff03AED2),
+                                              ]
+                                              //03AED2
+                                          ),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Text(
+                                          "longitude: ${model.coordModel!.lon}",
+                                          style: const TextStyle(fontSize: 15),
+                                        ),
+                                      ),
                                     ],
                                   ),
-                                ),
-                                const SizedBox(height: 15),
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text("24/07 Wed"),
-                                    Text("   🌨️"),
-                                    Text("17/33"),
-                                  ],
-                                ),
-                                const SizedBox(height: 15),
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text("23/07 Tue"),
-                                    Text("    🌤"),
-                                    Text("18/31"),
-                                  ],
-                                ),
-                                const SizedBox(height: 15),
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text("22/07 Mon"),
-                                    Text("   🌤️"),
-                                    Text("14/33"),
-                                  ],
-                                ),
-                                const SizedBox(height: 15),
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text("21/07 Sun"),
-                                    Text("    🌨"),
-                                    Text("16/36"),
-                                  ],
-                                ),
-                                const SizedBox(height: 15),
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text("21/07 Sat"),
-                                    Text("      ☀️"),
-                                    Text("20/33"),
-                                  ],
-                                ),
-                                const SizedBox(height: 15),
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text("19/07 Fri"),
-                                    Text("       ☀️"),
-                                    Text("19/30"),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            //Image.asset("assets/image/dummyc2.jpg"),
-                          ],
+                                  const SizedBox(height: 15),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height:50,
+                                        width:170,
+                                        decoration: BoxDecoration(
+                                          gradient: const LinearGradient(
+                                              begin: Alignment.topCenter,
+                                              end: Alignment.bottomCenter,
+                                              colors: [
+                                                Color(0xff5AB2FF),Color(0xff03AED2),
+                                              ]
+                                          ),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: const Text(
+                                          "TimeZone 🕰: India",
+                                          style: TextStyle(fontSize: 15),
+                                        ),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height:50,
+                                        width:170,
+                                        decoration: BoxDecoration(
+                                          gradient: const LinearGradient(
+                                              begin: Alignment.topCenter,
+                                              end: Alignment.bottomCenter,
+                                              colors: [
+                                                Color(0xff5AB2FF),Color(0xff03AED2),
+                                              ]
+                                          ),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Text("Wind Speed 💨: ${model.mainModel!.pressure}",
+                                          style: const TextStyle(fontSize: 15),),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 15),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height:50,
+                                        width:170,
+                                        decoration: BoxDecoration(
+                                          gradient: const LinearGradient(
+                                              begin: Alignment.topCenter,
+                                              end: Alignment.bottomCenter,
+                                              colors: [
+                                                Color(0xff5AB2FF),Color(0xff03AED2),
+                                              ]
+                                          ),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Text(
+                                          "Max Temp 🌡: ${model.mainModel!.temp_max}",
+                                          style: const TextStyle(fontSize: 15),
+                                        ),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height:50,
+                                        width:170,
+                                        decoration: BoxDecoration(
+                                          gradient: const LinearGradient(
+                                              begin: Alignment.topCenter,
+                                              end: Alignment.bottomCenter,
+                                              colors: [
+                                                Color(0xff5AB2FF),Color(0xff03AED2),
+                                              ]
+                                          ),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Text(
+                                          "Min Temp 🌡: ${model.mainModel!.temp_min}",
+                                          style: const TextStyle(fontSize: 15),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 15),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height:50,
+                                        width:170,
+                                        decoration: BoxDecoration(
+                                          gradient: const LinearGradient(
+                                              begin: Alignment.topCenter,
+                                              end: Alignment.bottomCenter,
+                                              colors: [
+                                                Color(0xff5AB2FF),Color(0xff03AED2),
+                                              ]
+                                          ),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Text(
+                                          "Feels like 𖢅: ${model.mainModel!.feels_like}",
+                                          style: const TextStyle(fontSize: 15),
+                                        ),
+                                      ),
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height:50,
+                                        width:170,
+                                        decoration: BoxDecoration(
+                                          gradient: const LinearGradient(
+                                              begin: Alignment.topCenter,
+                                              end: Alignment.bottomCenter,
+                                              colors: [
+                                                Color(0xff5AB2FF),Color(0xff03AED2),
+                                              ]
+                                          ),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Text(
+                                          "Humidity 💧: ${model.mainModel!.humidity}",
+                                          style: const TextStyle(fontSize: 15),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+
+                                  const SizedBox(height: 20,),
+                                  const Padding(
+                                    padding: EdgeInsets.only(left: 25),
+                                    child: Align(
+                                      alignment: Alignment.topLeft,
+                                        child: Text("Weather of last 7 days >",style: TextStyle(fontSize: 17),)),
+                                  ),
+                                  const SizedBox(height: 10,),
+                                  Container(
+                                    height:50,
+                                    width:350,
+                                    decoration: BoxDecoration(
+                                      gradient: const LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            Color(0xff5AB2FF),Color(0xff03AED2),
+                                          ]
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Text("25/07 Today"),
+                                        Text("☀️"),
+                                        Text("18/33"),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 15),
+                                  Container(
+                                    height:50,
+                                    width:350,
+                                    decoration: BoxDecoration(
+                                      gradient: const LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            Color(0xff5AB2FF),Color(0xff03AED2),
+                                          ]
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Text("24/07 Wed"),
+                                        Text("   🌨️"),
+                                        Text("17/33"),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 15),
+                                  Container(
+                                    height:50,
+                                    width:350,
+                                    decoration: BoxDecoration(
+                                      gradient: const LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            Color(0xff5AB2FF),Color(0xff03AED2),
+                                          ]
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Text("23/07 Tue"),
+                                        Text("    🌤"),
+                                        Text("18/31"),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 15),
+                                  Container(
+                                    height:50,
+                                    width:350,
+                                    decoration: BoxDecoration(
+                                      gradient: const LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            Color(0xff5AB2FF),Color(0xff03AED2),
+                                          ]
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Text("22/07 Mon"),
+                                        Text("   🌤️"),
+                                        Text("14/33"),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 15),
+                                  Container(
+                                    height:50,
+                                    width:350,
+                                    decoration: BoxDecoration(
+                                      gradient: const LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            Color(0xff5AB2FF),Color(0xff03AED2),
+                                          ]
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Text("21/07 Sun"),
+                                        Text("    🌨"),
+                                        Text("16/36"),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 15),
+                                  Container(
+                                    height:50,
+                                    width:350,
+                                    decoration: BoxDecoration(
+                                      gradient: const LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            Color(0xff5AB2FF),Color(0xff03AED2),
+                                          ]
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Text("21/07 Sat"),
+                                        Text("      ☀️"),
+                                        Text("20/33"),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 15),
+                                  Container(
+                                    height:50,
+                                    width:350,
+                                    decoration: BoxDecoration(
+                                      gradient: const LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                          colors: [
+                                            Color(0xff5AB2FF),Color(0xff03AED2),
+                                          ]
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Text("19/07 Fri"),
+                                        Text("       ☀️"),
+                                        Text("19/30"),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 15),
+                                ],
+                              ),
+                              //Image.asset("assets/image/dummyc2.jpg"),
+                            ],
+                          ),
                         ),
                       );
                     }
